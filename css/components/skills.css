@@ -1,0 +1,42 @@
+.skills {
+  background-color: var(--light-tertiary-color);
+  scroll-margin-top: 15rem;
+}
+
+.skills .skills__content {
+  padding: 6rem 4rem;
+  text-align: center;
+}
+
+.skills .skills__content .description {
+  max-width: 56rem;
+  margin: 0 auto 6rem;
+}
+
+/* repeat(auto-fit, ...): O repeat() cria várias colunas, e auto-fit ajusta automaticamente o número de colunas com base no tamanho disponível. Isso significa que o número de colunas será flexível e se adaptará ao espaço que o grid tem, preenchendo-o conforme o necessário */
+
+/* minmax(25rem, 1fr): Cada coluna terá um tamanho mínimo de 25rem (ou seja, se o espaço disponível for pequeno, as colunas não serão menores que 25rem) e pode crescer até um máximo de 1fr. A unidade fr (fração) representa uma fração do espaço disponível. Então, o tamanho da coluna será pelo menos 25rem, mas se houver mais espaço, as colunas crescerão proporcionalmente para ocupar o restante do espaço disponível. */
+.skills .skills__content ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 2rem;
+}
+
+.skills .skills__content ul li .image-container {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: 50%;
+  width: 7rem;
+  height: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+}
+
+.skills .skills__content ul li h3 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin: 2rem 0 1rem;
+}

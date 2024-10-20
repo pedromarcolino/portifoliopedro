@@ -1,0 +1,83 @@
+/* Esse código fixa a barra de navegação (navbar) no topo da página, garantindo que ela sempre fique visível ao rolar o conteúdo. Ela ocupa 100% da largura da janela, tem uma cor de fundo branca (ou definida por uma variável --white), e o z-index: 10 assegura que a navbar fique por cima de outros elementos da página que possam se sobrepor a ela */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: var(--white);
+}
+
+.navbar .navbar__content {
+  padding: 3rem 4rem 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar .navbar__content .navbar__links li {
+  display: inline-block;
+}
+
+/* todos os li irão ter margem a direita menos o último */
+.navbar .navbar__content .navbar__links li:not(:last-of-type) {
+  margin-right: 2rem;
+}
+
+.navbar .navbar__content .navbar__links a {
+  padding: 1rem;
+  display: inline-block;
+}
+
+.navbar .navbar__content .navbar__links a:hover {
+  color: var(--tertiary-color);
+}
+
+.navbar.active {
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.navbar .navbar .navbar__content .navbar__mobile,
+.navbar .navbar__content .navbar__mobile .mobile__links {
+  display: none;
+}
+
+/* isso será aplicado apenas quando atingir tais características de largura */
+@media only screen and (max-width: 768px) {
+  .navbar .navbar__content .navbar__links {
+    display: none;
+  }
+
+  .navbar .navbar__content .navbar__mobile {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar .navbar__content .navbar__mobile img {
+    width: 3.6rem;
+    height: 3.6rem;
+    cursor: pointer;
+  }
+
+  .navbar .navbar__content .navbar__mobile.active .mobile__links {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+    width: 100%;
+    position: absolute;
+    top: 98%;
+    left: 0;
+    padding: 1rem 0;
+    box-shadow: 0 0.4rem 0.5rem rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+
+  .navbar .navbar__content .navbar__mobile.active .mobile__links li {
+    margin-right: 0;
+  }
+
+  .navbar .navbar__content .navbar__mobile.active .mobile__links li a {
+    padding: 1rem;
+    display: block;
+    text-align: center;
+  }
+}
